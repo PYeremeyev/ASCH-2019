@@ -1,0 +1,6 @@
+.idea
+ASCH_Practice/target
+ASCH_Practice/.idea
+#idea
+*.iml
+*.iws
