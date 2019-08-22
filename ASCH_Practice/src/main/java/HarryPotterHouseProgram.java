@@ -4,7 +4,7 @@ class HarryPotterHouseProgram {
             case "gryffindor":
                 return ("bravery");
             case "hufflepuff":
-               return ("loyalty");
+                return ("loyalty");
             case "slytherin":
                 return ("cunning");
             case "ravenclaw":
@@ -14,3 +14,4 @@ class HarryPotterHouseProgram {
         }
     }
 }
+
