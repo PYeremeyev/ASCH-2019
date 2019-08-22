@@ -1,7 +1,9 @@
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -14,7 +16,6 @@ public class HarryPotterProgramTest {
     public static void init(){
         HarryPottersHouse = new HarryPotterHouseProgram();
     }
-
 
     @Test
     public void checkGryffindor() {
@@ -40,15 +41,18 @@ public class HarryPotterProgramTest {
         assertEquals("not a valid house", HarryPottersHouse.defineHouse("something"));
     }
 
-    @AfterAll
-    public static void exit(){
-        HarryPottersHouse = null;
+    @ParameterizedTest
+    @NullAndEmptySource
+    @ValueSource(strings = {"", "  ", "\t", "\n"})
+    void checkEmptyAndNullStrings(String input) {
+        assertEquals("not a valid house",HarryPottersHouse.defineHouse(input));
     }
 
- //   @Test
-  //  public void checkNull() {
-  //      assertEquals("not a valid house", HarryPottersHouse.defineHouse(null));
- //   }
+
+    @AfterAll
+    public static void clearMemory(){
+        HarryPottersHouse = null;
+    }
 
 
 }
