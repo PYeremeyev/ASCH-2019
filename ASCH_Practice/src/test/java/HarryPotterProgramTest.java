@@ -4,16 +4,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class HarryPotterProgramTest {
 
-  static HarryPotterHouseProgram HarryPottersHouse;
+    static HarryPotterHouseProgram HarryPottersHouse;
 
     @BeforeAll
-    public static void init(){
+    public static void init() {
         HarryPottersHouse = new HarryPotterHouseProgram();
     }
 
@@ -36,6 +36,7 @@ public class HarryPotterProgramTest {
     public void checkRavenclaw() {
         assertEquals("intellect", HarryPottersHouse.defineHouse("ravenclaw"));
     }
+
     @Test
     public void checkDefault() {
         assertEquals("not a valid house", HarryPottersHouse.defineHouse("something"));
@@ -45,12 +46,12 @@ public class HarryPotterProgramTest {
     @NullAndEmptySource
     @ValueSource(strings = {"", "  ", "\t", "\n"})
     void checkEmptyAndNullStrings(String input) {
-        assertEquals("not a valid house",HarryPottersHouse.defineHouse(input));
+        assertEquals("not a valid house", HarryPottersHouse.defineHouse(input));
     }
 
 
     @AfterAll
-    public static void clearMemory(){
+    public static void clearMemory() {
         HarryPottersHouse = null;
     }
 
