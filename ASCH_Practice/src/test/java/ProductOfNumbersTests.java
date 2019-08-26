@@ -31,7 +31,7 @@ public class ProductOfNumbersTests {
 
     @Test
     public void productOfNumbersMaximumInt() {
-        assertEquals(1.10355024E10, ProductNumbers.productOfInput(1, 999999999));
+        assertEquals(0, ProductNumbers.productOfInput(1, 999999999));
     }
 
 
