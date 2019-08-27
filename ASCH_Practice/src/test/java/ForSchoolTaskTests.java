@@ -5,8 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ForSchoolTaskTests {
 
     @Test
-    public void happyPath() {
+    public void happyPathRange() {
         assertEquals(5, ForSchoolTask.countTwoRangesNumbers(0, 10, 1, 7));
+    }
+    @Test
+    public void negativeRange() {
+        assertEquals(3, ForSchoolTask.countTwoRangesNumbers(-10, -1, -7, -3));
     }
 
     @Test
