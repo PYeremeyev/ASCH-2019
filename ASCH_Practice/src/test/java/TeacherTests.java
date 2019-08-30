@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -13,15 +15,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TeacherTests {
 
-    Teacher teacher = new Teacher();
-    Pupil pupil = new Pupil("Pavel", "Yeremeyev");
-    School school = new School();
-    Pupil p1 = new Pupil("Vasya", "Petykin");
-    Pupil p2 = new Pupil("Petya", "Petykin");
-    Pupil p3 = new Pupil("Looney", "Petykin");
-    Pupil p4 = new Pupil("Dmitriy", "Petykin");
-    Pupil p5 = new Pupil("Ibrahim", "Petykin");
-    List<Pupil> pupils = new ArrayList<>();
+    Teacher teacher;
+    Pupil pupil;
+    School school;
+    Pupil p1;
+    Pupil p2;
+    Pupil p3;
+    Pupil p4;
+    Pupil p5;
+    List<Pupil> pupils;
+
+    @BeforeAll
+    public void init(){
+        teacher = new Teacher();
+        pupil = new Pupil("Pavel", "Yeremeyev");
+        school = new School();
+        p1 = new Pupil("Vasya", "Petykin");
+        p2 = new Pupil("Petya", "Petykin");
+        p3 = new Pupil("Looney", "Petykin");
+        p4 = new Pupil("Dmitriy", "Petykin");
+        p5 = new Pupil("Ibrahim", "Petykin");
+        pupils = new ArrayList<>();
+    }
 
 
 
@@ -74,6 +89,18 @@ public class TeacherTests {
         assertEquals(false,teacher.isSchoolSuccess(school));
     }
 
+    @AfterAll
+    public void clearData(){
+        teacher = null;
+        pupil = null;
+        school = null;
+        p1 = null;
+        p2 = null;
+        p3 = null;
+        p4 = null;
+        p5 = null;
+        pupils = null;
+    }
 
 
 }
