@@ -1,3 +1,5 @@
+package self_work;
+
 import java.util.List;
 
 public class School {
